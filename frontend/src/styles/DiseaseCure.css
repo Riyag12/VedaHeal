@@ -1,0 +1,88 @@
+/* Main container */
+.disease-cure-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Search box */
+.search-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+/* Error message */
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Results container */
+.result-container {
+    margin-top: 20px;
+    text-align: left;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+/* Herb List */
+.herb-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Herb Card */
+.herb-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Herb Name */
+.herb-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    padding-bottom: 5px;
+}
+
+/* Dosage Container */
+.dosage-container {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-left: 4px solid #4CAF50;
+}
+
+/* Dosage List */
+.dosage-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Dosage Item */
+.dosage-item {
+    padding: 5px 0;
+}
