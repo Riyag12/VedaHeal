@@ -26,7 +26,7 @@
 
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
-from database import SessionLocal, Disease, Drug, Formulation
+from database import SessionLocal, Disease, Drug, Formulation 
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -38,6 +38,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ✅ Dependency to get a database session
 def get_db():
     db = SessionLocal()
     try:
@@ -45,6 +47,7 @@ def get_db():
     finally:
         db.close()
 
+# ✅ Fetch disease details and associated drugs & formulations
 @app.get("/diseases/{disease_name}")
 def get_disease_info(disease_name: str, db: Session = Depends(get_db)):
     disease = db.query(Disease).filter(Disease.name.ilike(f"%{disease_name}%")).first()
@@ -66,4 +69,21 @@ def get_disease_info(disease_name: str, db: Session = Depends(get_db)):
         "sanskrit_name": disease.sanskrit_name,
         "description": disease.description,
         "drugs": drugs
+    }
+
+# ✅ Fetch herb details and the diseases it can cure
+@app.get("/herbs/{herb_name}")
+def get_herb_info(herb_name: str, db: Session = Depends(get_db)):
+    herb = db.query(Drug).filter(Drug.name.ilike(f"%{herb_name}%")).first()
+    if not herb:
+        return {"message": "No data found for this herb."}
+
+    # ✅ Corrected Many-to-Many Query for Diseases Linked to This Herb
+    diseases = db.query(Disease).join(Disease.drugs).filter(Disease.drugs.any(id=herb.id)).all()
+    disease_names = [disease.name for disease in diseases]
+
+    return {
+        "name": herb.name,
+        "scientific_name": herb.scientific_name,
+        "diseases": disease_names
     }
