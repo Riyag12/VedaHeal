@@ -25,7 +25,7 @@ const About = () => {
             <div className="section">
                 <h2>📚 Our Data Sources</h2>
                 <p>
-                    All information is sourced from **authentic Ayurvedic classical texts** and **trusted repositories**  
+                    All information is sourced from authentic Ayurvedic classical texts and trusted repositories  
                     to ensure accuracy and reliability.
                 </p>
             </div>

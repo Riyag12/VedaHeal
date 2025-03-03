@@ -7,6 +7,7 @@ const Navbar = () => {
             <h1 style={styles.logo}>VedaHeal</h1>
             <ul style={styles.navLinks}>
                 <li><Link to="/" style={styles.link}>Home</Link></li>
+                <li><Link to="/explore-ayurveda" style={styles.link}>Explore</Link></li>
                 <li><Link to="/disease-cure" style={styles.link}>Disease Cure</Link></li>
                 <li><Link to="/herb-benefits" style={styles.link}>Herb Benefits</Link></li>
                 <li><Link to="/about" style={styles.link}>About</Link></li>

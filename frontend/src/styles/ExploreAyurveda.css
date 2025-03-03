@@ -1,0 +1,100 @@
+.explore-container {
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 8px;
+}
+
+/* Wrapper for the entire section */
+.explore-wrapper {
+    /* background-color: #f4f1ea; */
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Cards Layout */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Individual Cards */
+.card {
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: #c8e6c9;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Hide the selected card container completely when no card is selected */
+.selected-container {
+    display: none; /* ✅ This removes it completely */
+    width: 90%;
+    max-width: 1000px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ✅ When a card is selected, show the container */
+.selected-container.active {
+    display: flex;
+    justify-content: center;
+}
+
+/* Selected Card Content */
+.selected-card {
+    padding: 20px;
+    width: 70%;
+    background: #e8f5e9;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+    border-left: 6px solid #2e7d32;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .selected-card {
+        width: 90%;
+    }
+}
