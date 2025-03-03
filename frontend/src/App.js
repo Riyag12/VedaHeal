@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import DiseaseCure from "./pages/DiseaseCure";
 import HerbBenefits from "./pages/HerbBenefits";
 import About from "./pages/About";
+import ExploreAyurveda from "./pages/ExploreAyurveda";
 import "./App.css";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/disease-cure" element={<DiseaseCure />} />
                         <Route path="/herb-benefits" element={<HerbBenefits />} />
+                        <Route path="/explore-ayurveda" element={<ExploreAyurveda />} />
                         <Route path="/about" element={<About />} />
                     </Routes>
                 </div>
