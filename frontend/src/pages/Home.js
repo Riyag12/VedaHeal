@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Home.css"; // ✅ Import CSS
+import "../styles/Home.css";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -20,6 +20,11 @@ const Home = () => {
                     <div className="home-card" onClick={() => navigate("/herb-benefits")}>
                         <h2>Herb Benefits</h2><br/>
                         <p>Discover the healing properties of Ayurvedic herbs.</p>
+                    </div>
+
+                    <div className="home-card" onClick={() => navigate("/chatbot")}>
+                        <h2>Chat with VedaHeal</h2><br/>
+                        <p>Ask Ayurvedic-related questions to our AI.</p>
                     </div>
                 </div>
             </div>

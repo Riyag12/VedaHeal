@@ -1,29 +1,3 @@
-# from fastapi import FastAPI
-# from routers import diseases, drugs, formulations
-# from database import engine, Base
-# from fastapi.middleware.cors import CORSMiddleware
-
-# Base.metadata.create_all(bind=engine)
-
-# app = FastAPI()
-
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["http://localhost:3000"], 
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
-
-# app.include_router(diseases.router)
-# app.include_router(drugs.router)
-# app.include_router(formulations.router)
-
-# @app.get("/")
-# def root():
-#     return {"message": "Ayurveda Drug Suggestion API"}
-
-
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from database import SessionLocal, Disease, Drug, Formulation 
@@ -39,7 +13,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# ✅ Dependency to get a database session
 def get_db():
     db = SessionLocal()
     try:
@@ -47,7 +20,6 @@ def get_db():
     finally:
         db.close()
 
-# ✅ Fetch disease details and associated drugs & formulations
 @app.get("/diseases/{disease_name}")
 def get_disease_info(disease_name: str, db: Session = Depends(get_db)):
     disease = db.query(Disease).filter(Disease.name.ilike(f"%{disease_name}%")).first()

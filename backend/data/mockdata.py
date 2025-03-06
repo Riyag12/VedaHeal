@@ -1,5 +1,42 @@
 disease_data = [
-    
+    {
+        "name": "Skin diseases",
+        "drugs": [
+            {
+                "name": "Kalimirach",
+                "scientific_name": "Piper nigrum Linn., Maricha",
+                "formulations": [
+                    {"name": "Kalimirach Skin Remedy", "ingredients": "Kalimirach, ghee, honey", "preparation_method": "Mix ingredients and consume.", "dosage": "1 gm powder of seeds with ghee and honey twice daily."}
+                ],
+            },
+            {
+                "name": "Karela",
+                "scientific_name": "Momordica charantia Linn., Karavellaka",
+                "formulations": [
+                    {"name": "Karela Juice Remedy", "ingredients": "Karela juice", "preparation_method": "Drink on an empty stomach.", "dosage": "5-10 ml juice every morning."}
+                ],
+            },
+        ],
+    },
+    {
+        "name": "Indigestion",
+        "drugs": [
+            {
+                "name": "Kalimirach",
+                "scientific_name": "Piper nigrum Linn., Maricha",
+                "formulations": [
+                    {"name": "Kalimirach Indigestion Remedy", "ingredients": "Kalimirach, ginger, rock salt", "preparation_method": "Mix ingredients and take before meals.", "dosage": "A pinch before meals."}
+                ],
+            },
+            {
+                "name": "Karela",
+                "scientific_name": "Momordica charantia Linn., Karavellaka",
+                "formulations": [
+                    {"name": "Karela Juice for Digestion", "ingredients": "Karela juice", "preparation_method": "Drink twice daily.", "dosage": "5-10 ml juice of fruit twice daily."}
+                ],
+            },
+        ],
+    },
     {
         "name": "Cough",
         "drugs": [

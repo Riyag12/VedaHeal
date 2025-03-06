@@ -7,3 +7,9 @@ nltk
 psycopg2
 PyPDF2
 pytesseract
+pdf2image
+weaviate-client
+sentence_transformers
+fitz
+pymupdf
+ollama
