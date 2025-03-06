@@ -8,6 +8,7 @@ import HerbBenefits from "./pages/HerbBenefits";
 import About from "./pages/About";
 import ExploreAyurveda from "./pages/ExploreAyurveda";
 import "./App.css";
+import Chatbot from "./components/Chatbot";
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                         <Route path="/herb-benefits" element={<HerbBenefits />} />
                         <Route path="/explore-ayurveda" element={<ExploreAyurveda />} />
                         <Route path="/about" element={<About />} />
+                        <Route path="/chatbot" element={<Chatbot />} />
                     </Routes>
                 </div>
                 <Footer />
