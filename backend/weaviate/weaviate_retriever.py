@@ -28,10 +28,9 @@ def search_weaviate(query, top_k=3):
     try:
         ayurvedic_collection = client.collections.get("AyurvedicText")
 
-        # ✅ Corrected Query Format
         response = ayurvedic_collection.query.near_text(
             query=query,  
-            limit=top_k  # Ensure limit is passed correctly
+            limit=top_k  
         )
 
         return response.objects if response.objects else []
@@ -39,7 +38,3 @@ def search_weaviate(query, top_k=3):
     except Exception as e:
         print(f"❌ Error in Weaviate query: {str(e)}")
         return []
-
-# Example Usage
-if __name__ == "__main__":
-    print(search_weaviate("Neem benefits"))
