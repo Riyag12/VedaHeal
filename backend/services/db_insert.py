@@ -1,10 +1,11 @@
 import sys
 import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from database import SessionLocal
 from database import Disease, Drug, Formulation
 from data.mockdata import disease_data 
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 db = SessionLocal()
 
@@ -27,9 +28,10 @@ for disease in disease_data:
 
         for formulation in drug["formulations"]:
             db_formulation = Formulation(
-                name=formulation["name"], ingredients=formulation["ingredients"],
-                preparation_method=formulation["preparation_method"], dosage=formulation["dosage"],
-                drug_id=db_drug.id
+                name=formulation["name"],
+                dosage=formulation["dosage"],
+                drug_id=db_drug.id,
+                disease_id=db_disease.id
             )
             db.add(db_formulation)
 

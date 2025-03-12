@@ -1,15 +1,18 @@
 import React from "react";
-import "../styles/About.css"; // ✅ Import CSS
+import "../styles/About.css";
+import fullLogo from "../assets/logo1.png";
 
 const About = () => {
     return (
         <div className="about-container">
-            <h1>About VedaHeal</h1>  
+            <div className="logo-container">
+                <img src={fullLogo} alt="VedaHeal Logo" className="about-logo" />
+            </div>
 
             <div className="section">
                 <h2>🌿 Why Ayurveda?</h2>
                 <p>
-                Ayurveda, the science of life, is a time-tested healing system that has flourished for over 5,000 years. Unlike modern medicine, which often focuses on treating symptoms, Ayurveda delves into the root cause of ailments, promoting balance between the mind, body, and spirit. It harnesses the power of natural herbs, holistic therapies, and personalized treatments to restore health and prevent diseases. With an emphasis on sustainable well-being, Ayurveda offers remedies that are not only effective and chemical-free but also aligned with the body's natural rhythms, making it a truly timeless path to healing and longevity.
+                    Ayurveda, the science of life, is a time-tested healing system that has flourished for over 5,000 years. Unlike modern medicine, which often focuses on treating symptoms, Ayurveda delves into the root cause of ailments, promoting balance between the mind, body, and spirit...
                 </p>
             </div>
 
@@ -25,7 +28,7 @@ const About = () => {
             <div className="section">
                 <h2>📚 Our Data Sources</h2>
                 <p>
-                    All information is sourced from authentic Ayurvedic classical texts and trusted repositories  
+                    All information is sourced from authentic Ayurvedic classical texts and trusted repositories
                     to ensure accuracy and reliability.
                 </p>
             </div>

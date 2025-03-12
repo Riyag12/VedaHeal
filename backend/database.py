@@ -3,7 +3,13 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, Integer, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
 # Create a base class
 Base = declarative_base()
 
@@ -19,10 +25,8 @@ class Disease(Base):
     __tablename__ = "diseases"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
-    sanskrit_name = Column(String, nullable=True)
-    description = Column(String, nullable=True)
     drugs = relationship("Drug", secondary=disease_drug, back_populates="diseases")
-
+    formulations = relationship("Formulation", back_populates="disease")
 
 class Drug(Base):
     __tablename__ = "drugs"
@@ -36,16 +40,15 @@ class Formulation(Base):
     __tablename__ = "formulations"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
-    ingredients = Column(String, nullable=True)
-    preparation_method = Column(String, nullable=True)
     dosage = Column(String, nullable=True)
-    drug_id = Column(Integer, ForeignKey("drugs.id"))  # ✅ Link Formulation to Drug
+    drug_id = Column(Integer, ForeignKey("drugs.id"))
     drug = relationship("Drug", back_populates="formulations")
+    disease_id = Column(Integer, ForeignKey("diseases.id"))
+    disease = relationship("Disease", back_populates="formulations")
 
 
 # Database connection string
-DATABASE_URL = "postgresql://postgres:riyagarg@localhost:5432/ayurvedicdb"
-
+DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@ep-wispy-morning-a8g7prkr-pooler.eastus2.azure.neon.tech/ayurvedicdb?sslmode=require"
 # Create a database engine
 engine = create_engine(DATABASE_URL)
 
