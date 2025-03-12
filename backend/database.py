@@ -3,7 +3,13 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, Integer, String, ForeignKey, Table
 from sqlalchemy.orm import relationship
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
 # Create a base class
 Base = declarative_base()
 
@@ -42,8 +48,7 @@ class Formulation(Base):
 
 
 # Database connection string
-DATABASE_URL = "postgresql://postgres:riyagarg@localhost:5432/ayurvedicdb"
-
+DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@ep-wispy-morning-a8g7prkr-pooler.eastus2.azure.neon.tech/ayurvedicdb?sslmode=require"
 # Create a database engine
 engine = create_engine(DATABASE_URL)
 

@@ -1,10 +1,11 @@
 import sys
 import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from database import SessionLocal
 from database import Disease, Drug, Formulation
 from data.mockdata import disease_data 
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 db = SessionLocal()
 

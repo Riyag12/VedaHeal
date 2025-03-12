@@ -1,9 +1,10 @@
+import sys
+sys.path.append("C:/Users/admin/OneDrive/Desktop/VedaHeal/VedaHeal/backend/weaviate")
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from database import SessionLocal, Disease, Drug, Formulation 
 from fastapi.middleware.cors import CORSMiddleware
-import sys
-sys.path.append("C:/Users/admin/OneDrive/Desktop/VedaHeal/VedaHeal/backend/weaviate")
+
 
 from weaviate_retriever import search_weaviate
 from pydantic import BaseModel
