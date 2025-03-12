@@ -2,12 +2,6 @@ import ollama
 from weaviate_retriever import search_weaviate
 
 def generate_response(query):
-    """
-    Retrieves relevant text from Weaviate and generates an AI-powered response using Llama 2 via Ollama.
-    
-    :param query: User's input question
-    :return: AI-generated response
-    """
     retrieved_chunks = search_weaviate(query)
 
     # Format retrieved data as context
