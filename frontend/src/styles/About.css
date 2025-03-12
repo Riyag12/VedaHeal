@@ -1,18 +1,14 @@
-/* Main container */
 .about-container {
-    /*max-width: 800px;*/
     margin: auto;
     padding: 20px;
     text-align: center;
 }
 
-/* Introduction section */
 .about-intro {
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-/* Section Styling */
 .section {
     background: #f9f9f9;
     padding: 15px;
@@ -22,13 +18,11 @@
     text-align: left;
 }
 
-/* Section Headings */
 .section h2 {
     color: #2e7d32;
     margin-bottom: 5px;
 }
 
-/* Unordered List */
 ul {
     text-align: left;
     padding-left: 20px;
@@ -39,7 +33,6 @@ ul li {
     margin: 5px 0;
 }
 
-/* Contact Section */
 .contact-section {
     background: #e8f5e9;
 }
@@ -51,4 +44,15 @@ ul li {
 
 .contact-section a:hover {
     text-decoration: underline;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.about-logo {
+    width: 250px;
+    height: auto;
 }
