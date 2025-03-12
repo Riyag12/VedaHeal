@@ -34,18 +34,20 @@ def get_disease_info(disease_name: str, db: Session = Depends(get_db)):
 
     drugs = []
     for drug in disease.drugs:
-        formulations = db.query(Formulation).filter(Formulation.drug_id == drug.id).all()
+        formulations = db.query(Formulation).filter(
+            Formulation.drug_id == drug.id,
+            Formulation.disease_id == disease.id
+        ).all()
+
         drug_data = {
             "drug_name": drug.name,
-            "scientific_name": drug.scientific_name,
-            "formulations": [{"name": f.name, "ingredients": f.ingredients, "dosage": f.dosage} for f in formulations]
+            "scientific_name": drug.scientific_name if hasattr(drug, "scientific_name") else None,
+            "formulations": [{"name": f.name, "dosage": f.dosage} for f in formulations]
         }
         drugs.append(drug_data)
 
     return {
         "disease": disease.name,
-        "sanskrit_name": disease.sanskrit_name,
-        "description": disease.description,
         "drugs": drugs
     }
 
