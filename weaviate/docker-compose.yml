@@ -12,4 +12,4 @@ services:
       QUERY_DEFAULTS_LIMIT: "100"
       ENABLE_MODULES: "text2vec-openai"
     volumes:
-      - D:/weaviate_data:/var/lib/weaviate  # ✅ Ensure persistence directory is mapped
+      - D:/weaviate_data:/var/lib/weaviate

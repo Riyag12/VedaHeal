@@ -1,5 +1,5 @@
 import weaviate
-from weaviate.connect import ConnectionParams  # ✅ Import ConnectionParams from the correct module
+from weaviate.connect import ConnectionParams
 from sentence_transformers import SentenceTransformer
 from pdf_reader import extract_text_from_pdf
 from text_chunker import chunk_text
@@ -41,4 +41,5 @@ def store_text_in_weaviate(book_title, pdf_path):
 
 if __name__ == "__main__":
     store_text_in_weaviate("Ayurveda", "C:/Users/admin/OneDrive/Desktop/VedaHeal/VedaHeal/backend/data/books/ayurveda.pdf")
+    #store_text_in_weaviate("CharakSamhita", "C:/Users/admin/OneDrive/Desktop/VedaHeal/VedaHeal/backend/data/books/CharakaSamhita.pdf")
     client.close() 

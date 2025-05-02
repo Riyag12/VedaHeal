@@ -44,7 +44,7 @@ const Chatbot = () => {
             <button onClick={sendMessage} disabled={loading}>
                 {loading ? "Thinking..." : "Ask"}
             </button>
-            {response && <p className="chat-response">{response}</p>}
+            {!loading && response && <p className="chat-response">{response}</p>}
         </div>
     );
 };
