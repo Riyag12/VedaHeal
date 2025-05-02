@@ -4,7 +4,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from database import SessionLocal
 from database import Disease, Drug, Formulation
-from data.mockdata import disease_data 
+from data.processed_data import disease_data 
 
 
 db = SessionLocal()

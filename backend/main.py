@@ -52,14 +52,12 @@ def get_disease_info(disease_name: str, db: Session = Depends(get_db)):
         "drugs": drugs
     }
 
-# ✅ Fetch herb details and the diseases it can cure
 @app.get("/herbs/{herb_name}")
 def get_herb_info(herb_name: str, db: Session = Depends(get_db)):
     herb = db.query(Drug).filter(Drug.name.ilike(f"%{herb_name}%")).first()
     if not herb:
         return {"message": "No data found for this herb."}
 
-    # ✅ Corrected Many-to-Many Query for Diseases Linked to This Herb
     diseases = db.query(Disease).join(Disease.drugs).filter(Disease.drugs.any(id=herb.id)).all()
     disease_names = [disease.name for disease in diseases]
 
@@ -108,5 +106,5 @@ async def chat(request: QueryRequest):
         return {"response": response_text}
 
     except Exception as e:
-        print(f"❌ Error processing request: {str(e)}")
+        print(f"Error processing request: {str(e)}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
